@@ -11,7 +11,14 @@ export const PlanetCardView = () => {
 				<h1>Planets</h1>
 				<div className="scroller">
 					{store.planets.map((value, index) => {
-						return <PlanetCard key={index} planet={value} />;
+						return (
+							<PlanetCard
+								key={index}
+								planet={value}
+								addFavorites={actions.addFavorite}
+								deleteFavorite={actions.deleteFavorite}
+							/>
+						);
 					})}
 				</div>
 			</div>

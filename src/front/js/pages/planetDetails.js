@@ -3,13 +3,13 @@ import PropTypes from "prop-types";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-export const CharacterDetails = props => {
+export const PlanetDetails = props => {
 	const { store, actions } = useContext(Context);
-	const [character, setCharacter] = useState();
+	const [planet, setPlanet] = useState();
 	const params = useParams();
 
 	useEffect(() => {
-		fetch(`https://www.swapi.tech/api/people/${params.id}`)
+		fetch(`https://www.swapi.tech/api/planets/${params.id}`)
 			.then(function(response) {
 				if (!response.ok) {
 					throw Error(response.statusText);
@@ -18,9 +18,9 @@ export const CharacterDetails = props => {
 				return response.json();
 			})
 			.then(function(responseAsJson) {
-				console.log("character", responseAsJson);
+				console.log("planet", responseAsJson);
 				//return responseAsJson;
-				setCharacter(responseAsJson);
+				setPlanet(responseAsJson);
 			})
 			.catch(function(error) {
 				console.log("Looks like there was a problem: \n", error);
@@ -36,33 +36,33 @@ export const CharacterDetails = props => {
 					className="detailsImage m-3"
 				/>
 				<div>
-					{/* <h1>{props.character.name}</h1> */}
-					<h1>{character ? character.result.properties.name : ""}</h1>
-					<h6>{character ? character.result.description : ""}</h6>
+					{/* <h1>{props.planet.name}</h1> */}
+					<h1>{planet ? planet.result.properties.name : ""}</h1>
+					<h6>{planet ? planet.result.description : ""}</h6>
 				</div>
 			</div>
 			<hr />
 			<div className="d-flex  justify-content-between">
 				<div className="detail">
-					<h4>Name </h4> {character ? character.result.properties.name : ""}
+					<h4>Name </h4> {planet ? planet.result.properties.name : ""}
 					<br />
 				</div>
 				<div className="detail">
-					<h4>Birth Year</h4> {character ? character.result.properties.birth_year : ""} <br />
+					<h4>Climate</h4> {planet ? planet.result.properties.cliamte : ""} <br />
 				</div>
 				<div className="detail">
-					<h4>Gender</h4> {character ? character.result.properties.gender : ""} <br />
+					<h4>Population</h4> {planet ? planet.result.properties.population : ""} <br />
 				</div>
 				<div className="detail">
-					<h4>Height</h4> {character ? character.result.properties.height : ""}
+					<h4>Orbital Period</h4> {planet ? planet.result.properties.orbital_period : ""}
 					<br />
 				</div>
 				<div className="detail">
-					<h4>Skin Color</h4> {character ? character.result.properties.skin_color : ""}
+					<h4>Rotation Period</h4> {planet ? planet.result.properties.rotation_period : ""}
 					<br />
 				</div>
 				<div className="detail">
-					<h4>Eye Color</h4> {character ? character.result.properties.eye_color : ""}
+					<h4>Diameter</h4> {planet ? planet.result.properties.diameter : ""}
 					<br />
 				</div>
 				<Link to="/">
@@ -76,6 +76,6 @@ export const CharacterDetails = props => {
 	);
 };
 
-CharacterDetails.propTypes = {
-	character: PropTypes.object
+PlanetDetails.propTypes = {
+	planet: PropTypes.object
 };

@@ -3,13 +3,13 @@ import PropTypes from "prop-types";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-export const CharacterDetails = props => {
+export const StarshipDetails = props => {
 	const { store, actions } = useContext(Context);
-	const [character, setCharacter] = useState();
+	const [starship, setStarship] = useState();
 	const params = useParams();
 
 	useEffect(() => {
-		fetch(`https://www.swapi.tech/api/people/${params.id}`)
+		fetch(`https://www.swapi.tech/api/starships/${params.id}`)
 			.then(function(response) {
 				if (!response.ok) {
 					throw Error(response.statusText);
@@ -18,9 +18,9 @@ export const CharacterDetails = props => {
 				return response.json();
 			})
 			.then(function(responseAsJson) {
-				console.log("character", responseAsJson);
+				console.log("starship", responseAsJson);
 				//return responseAsJson;
-				setCharacter(responseAsJson);
+				setStarship(responseAsJson);
 			})
 			.catch(function(error) {
 				console.log("Looks like there was a problem: \n", error);
@@ -36,33 +36,33 @@ export const CharacterDetails = props => {
 					className="detailsImage m-3"
 				/>
 				<div>
-					{/* <h1>{props.character.name}</h1> */}
-					<h1>{character ? character.result.properties.name : ""}</h1>
-					<h6>{character ? character.result.description : ""}</h6>
+					{/* <h1>{props.starship.name}</h1> */}
+					<h1>{starship ? starship.result.properties.name : ""}</h1>
+					<h6>{starship ? starship.result.description : ""}</h6>
 				</div>
 			</div>
 			<hr />
 			<div className="d-flex  justify-content-between">
 				<div className="detail">
-					<h4>Name </h4> {character ? character.result.properties.name : ""}
+					<h4>Name </h4> {starship ? starship.result.properties.name : ""}
 					<br />
 				</div>
 				<div className="detail">
-					<h4>Birth Year</h4> {character ? character.result.properties.birth_year : ""} <br />
+					<h4>Model</h4> {starship ? starship.result.properties.model : ""} <br />
 				</div>
 				<div className="detail">
-					<h4>Gender</h4> {character ? character.result.properties.gender : ""} <br />
+					<h4>Cost</h4> {starship ? starship.result.properties.cost_in_credits : ""} <br />
 				</div>
 				<div className="detail">
-					<h4>Height</h4> {character ? character.result.properties.height : ""}
+					<h4>Consumables</h4> {starship ? starship.result.properties.consumables : ""}
 					<br />
 				</div>
 				<div className="detail">
-					<h4>Skin Color</h4> {character ? character.result.properties.skin_color : ""}
+					<h4>Class</h4> {starship ? starship.result.properties.starship_class : ""}
 					<br />
 				</div>
 				<div className="detail">
-					<h4>Eye Color</h4> {character ? character.result.properties.eye_color : ""}
+					<h4>Passengers</h4> {starship ? starship.result.properties.passengers : ""}
 					<br />
 				</div>
 				<Link to="/">
@@ -76,6 +76,6 @@ export const CharacterDetails = props => {
 	);
 };
 
-CharacterDetails.propTypes = {
-	character: PropTypes.object
+StarshipDetails.propTypes = {
+	starship: PropTypes.object
 };

@@ -11,6 +11,8 @@ import { CharacterCard } from "./component/characterCard";
 import { StarshipCard } from "./component/starshipCard";
 
 import { CharacterDetails } from "./pages/characterDetails";
+import { PlanetDetails } from "./pages/planetDetails";
+import { StarshipDetails } from "./pages/starshipDetails";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
@@ -47,8 +49,14 @@ const Layout = () => {
 						<Route exact path="/single/:theid">
 							<Single />
 						</Route>
-						<Route exact path="/chardetails/:thename">
+						<Route exact path="/chardetails/:id">
 							<CharacterDetails />
+						</Route>
+						<Route exact path="/planetdetails/:id">
+							<PlanetDetails />
+						</Route>
+						<Route exact path="/starshipdetails/:id">
+							<StarshipDetails />
 						</Route>
 
 						<Route>

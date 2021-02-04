@@ -40,7 +40,7 @@ export const Navbar = () => {
 						</li>
 					</Link>
 				</div>
-				{/* <div className="ml-auto"> */}
+
 				<div className="dropdown">
 					<button
 						className="btn btn-lg dropdown-toggle"

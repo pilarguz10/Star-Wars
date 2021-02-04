@@ -1,42 +1,40 @@
+//::::::::::::::::::FONDO::::::::::::::::::
 body{
     background-image:url("https://starwarsblog.starwars.com/wp-content/uploads/2020/04/star-wars-backgrounds-25.jpg");
     
 }
 
-.dropdown-menu{
-     background-image:url("https://starwarsblog.starwars.com/wp-content/uploads/2020/04/star-wars-backgrounds-25.jpg");
-    //  border: 1px solid white;
-     margin-top: 0 !important; 
-    width: max-content;
+//:::::::::::TEXTO::::::::::::::::
+h1{
+    color:white;
+       font-family: monospace;
 }
 
+h3{
+    color:white;
+       font-family: monospace;
+}
 
+h6{
+    color:white;
+       font-family: monospace;
+}
+
+.detail{
+    color:white;
+       font-family: monospace;
+}
 
 h3.marquee {
     text-shadow: 0 0 5px yellow;
 color: white;
+   font-family: monospace;
 
 }
 
 .footer
 {
     color:yellow;
-}
-
-
-.navbar{
-   background-image:url("https://starwarsblog.starwars.com/wp-content/uploads/2020/04/star-wars-backgrounds-25.jpg");
-   border: 1px solid yellow;
-   box-shadow: 0 0 15px lightyellow;
-}
-
-
-.marquee {
-  margin: 0 auto;
-  white-space: nowrap;
-  overflow: hidden;
-  font-family: monospace;
- // position: absolute;
 }
 
 .marquee span {
@@ -60,34 +58,30 @@ color: white;
 }
 
 
-.scroller{
-    overflow-x: scroll;
-	overflow-y: hidden;
-    display: flex;
-    background-image: url("https://cdn.pixabay.com/photo/2016/09/08/12/00/stars-1654074_960_720.jpg");
-}
 
-.card{
-    width: 18rem;
-    flex: 0 0 auto;
-    background-color:#191A1A;
-    padding: 20px;
-    color: #ddd;
-    font-size: 1.4em;
-    box-shadow: 0 0 15px white;
-    border-radius: 5px;
+.dropdown-menu{
+     background-image:url("https://starwarsblog.starwars.com/wp-content/uploads/2020/04/star-wars-backgrounds-25.jpg");
+    //  border: 1px solid white;
+     margin-top: 0 !important; 
+    width: max-content;
 }
 
 
-.card:hover {
-  transform: scale(1.05);
+
+.navbar{
+   background-image:url("https://starwarsblog.starwars.com/wp-content/uploads/2020/04/star-wars-backgrounds-25.jpg");
+   border: 1px solid yellow;
+   box-shadow: 0 0 15px lightyellow;
 }
 
-
-h1{
-    color:white;
-       font-family: monospace;
+.marquee {
+  margin: 0 auto;
+  white-space: nowrap;
+  overflow: hidden;
+  font-family: monospace;
+ // position: absolute;
 }
+
 .nav-item{
     color:white;
     font-family: monospace;
@@ -140,6 +134,35 @@ h4:hover{
 }
 
 
+
+.scroller{
+    overflow-x: scroll;
+	overflow-y: hidden;
+    display: flex;
+    background-image: url("https://cdn.pixabay.com/photo/2016/09/08/12/00/stars-1654074_960_720.jpg");
+}
+
+.card{
+    width: 18rem;
+    flex: 0 0 auto;
+    background-color:#191A1A;
+    padding: 20px;
+    color: #ddd;
+    font-size: 1.4em;
+    box-shadow: 0 0 15px white;
+    border-radius: 5px;
+}
+
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+
+
+
+
+
 a:hover{
     text-decoration: yellowgreen;
 }
@@ -162,3 +185,7 @@ a:hover{
 
 }
 
+.btn:hover { 
+    background-color: black;
+    color:white;
+}

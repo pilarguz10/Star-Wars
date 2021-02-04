@@ -43,6 +43,25 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ favorites: newFavorites });
 			},
 
+			loadOneItem: url => {
+				let item = {};
+				fetch(url)
+					.then(function(response) {
+						if (!response.ok) {
+							throw Error(response.statusText);
+						}
+						// Read the response as json.
+						//return response.json();
+					})
+					.then(function(responseAsJson) {
+						console.log("character", responseAsJson);
+						return responseAsJson;
+					})
+					.catch(function(error) {
+						console.log("Looks like there was a problem: \n", error);
+					});
+			},
+
 			loadSomeData: () => {
 				fetch(`https://www.swapi.tech/api/people/`)
 					.then(function(response) {
@@ -59,7 +78,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						console.log("Looks like there was a problem: \n", error);
 					});
 
-				fetch(`https://swapi.dev/api/planets/`)
+				fetch(`https://www.swapi.tech/api/planets/`)
 					.then(function(response) {
 						if (!response.ok) {
 							throw Error(response.statusText);
@@ -74,7 +93,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						console.log("Looks like there was a problem: \n", error);
 					});
 
-				fetch(`https://swapi.dev/api/starships/`)
+				fetch(`https://www.swapi.tech/api/starships/`)
 					.then(function(response) {
 						if (!response.ok) {
 							throw Error(response.statusText);
@@ -132,14 +151,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 					checkPlanets[0] != undefined &&
 					checkStarships[0] == undefined
 				) {
-					path = `/pladetails/${value}`;
+					path = `/planetdetails/${value}`;
 					typeofCard = checkPlanets[0];
 				} else if (
 					checkCharacters[0] == undefined &&
 					checkPlanets[0] == undefined &&
 					checkStarships[0] != undefined
 				) {
-					path = `/stardetails/${value}`;
+					path = `/starshipdetails/${value}`;
 					typeofCard = checkStarships[0];
 				}
 				return { cardInfo: typeofCard, pathname: path };

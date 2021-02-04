@@ -11,7 +11,14 @@ export const StarshipCardView = () => {
 				<h1>Starships</h1>
 				<div className="scroller">
 					{store.starships.map((value, index) => {
-						return <StarshipCard key={index} starship={value} />;
+						return (
+							<StarshipCard
+								key={index}
+								starship={value}
+								addFavorites={actions.addFavorite}
+								deleteFavorite={actions.deleteFavorite}
+							/>
+						);
 					})}
 				</div>
 			</div>
