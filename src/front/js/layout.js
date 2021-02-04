@@ -4,11 +4,18 @@ import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
+import { CharacterCardView } from "./pages/characterCardView";
 import { Single } from "./pages/single";
 import injectContext from "./store/appContext";
+import { CharacterCard } from "./component/characterCard";
+import { StarshipCard } from "./component/starshipCard";
+
+import { CharacterDetails } from "./pages/characterDetails";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
+import { PlanetCardView } from "./pages/planetCardView";
+import { StarshipCardView } from "./pages/starshipCardView";
 
 //create your first component
 const Layout = () => {
@@ -28,9 +35,22 @@ const Layout = () => {
 						<Route exact path="/demo">
 							<Demo />
 						</Route>
+						<Route exact path="/characterCardView">
+							<CharacterCardView />
+						</Route>
+						<Route exact path="/planetCardView">
+							<PlanetCardView />
+						</Route>
+						<Route exact path="/starshipCardView">
+							<StarshipCardView />
+						</Route>
 						<Route exact path="/single/:theid">
 							<Single />
 						</Route>
+						<Route exact path="/chardetails/:thename">
+							<CharacterDetails />
+						</Route>
+
 						<Route>
 							<h1>Not found!</h1>
 						</Route>
