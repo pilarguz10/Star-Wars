@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Context } from "../store/appContext";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import PropTypes from "prop-types";
 import { Redirect } from "react-router-dom";
 
@@ -19,11 +19,13 @@ export const CharacterCard = props => {
 			/>
 			<div className="card-body">
 				<h5 className="card-title">{props.character.name}</h5>
+
 				<p className="card-text" style={{ color: "darkgrey" }}>
 					<b>Gender:</b> {props.character.gender} <br />
 					<b>Hair-color:</b> {props.character.hair_color} <br />
 					<b>Eye-color:</b> {props.character.eye_color} <br />
 				</p>
+
 				<div className="d-flex justify-content-between">
 					<Link to={{ pathname: `/chardetails/${props.character.name}`, state: props.character }}>
 						<button href="#" className="btn btn-outline-primary">

@@ -5,7 +5,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			planets: [],
 			starships: [],
 			favorites: [],
-			charactersDetails: [],
 
 			demo: [
 				{
@@ -43,25 +42,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 				});
 				setStore({ favorites: newFavorites });
 			},
-			getCharacterDetails: () => {
-				fetch(`https://swapi.dev/api/people/`)
-					.then(function(response) {
-						if (!response.ok) {
-							throw Error(response.statusText);
-						}
-						// Read the response as json.
-						return response.json();
-					})
-					.then(function(responseAsJson) {
-						setStore({ charactersDetails: responseAsJson.result });
-					})
-					.catch(function(error) {
-						console.log("Looks like there was a problem: \n", error);
-					});
-			},
 
 			loadSomeData: () => {
-				fetch(`https://swapi.dev/api/people/`)
+				fetch(`https://www.swapi.tech/api/people/`)
 					.then(function(response) {
 						if (!response.ok) {
 							throw Error(response.statusText);

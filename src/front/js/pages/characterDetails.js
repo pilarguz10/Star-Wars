@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 export const CharacterDetails = props => {
+	const { store, actions } = useContext(Context);
 	return (
 		<div className="container">
 			<div className="d-flex">
@@ -13,6 +14,7 @@ export const CharacterDetails = props => {
 					className="detailsImage m-3"
 				/>
 				<div>
+					{/* <h1>{props.character.name}</h1> */}
 					<h1>name</h1>
 					<h4>Descripcion</h4>
 				</div>
@@ -45,4 +47,6 @@ export const CharacterDetails = props => {
 	);
 };
 
-CharacterDetails.propTypes = {};
+CharacterDetails.propTypes = {
+	character: PropTypes.object
+};
