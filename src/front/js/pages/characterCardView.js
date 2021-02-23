@@ -21,6 +21,11 @@ export const CharacterCardView = () => {
 						);
 					})}
 				</div>
+				<div className="showMore">
+					<button className="btnShowMore" onClick={() => actions.getCharactersMore()}>
+						SHOW MORE CHARACTERS
+					</button>
+				</div>
 			</div>
 		</div>
 	);

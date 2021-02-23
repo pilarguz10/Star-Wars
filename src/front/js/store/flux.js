@@ -5,6 +5,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			planets: [],
 			starships: [],
 			favorites: [],
+			characters2: "",
 
 			demo: [
 				{
@@ -35,6 +36,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					setStore({ favorites: newFavorites });
 				}
 			},
+
 			deleteFavorite: deletedItem => {
 				var storeCopy = getStore();
 				var newFavorites = storeCopy.favorites.filter((value, index) => {
@@ -72,7 +74,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return response.json();
 					})
 					.then(function(responseAsJson) {
-						setStore({ characters: responseAsJson.results });
+						setStore({ characters: responseAsJson.results, characters2: responseAsJson.next });
 					})
 					.catch(function(error) {
 						console.log("Looks like there was a problem: \n", error);
@@ -107,6 +109,28 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(function(error) {
 						console.log("Looks like there was a problem: \n", error);
 					});
+			},
+
+			// getCharactersMore: () => {
+			// 	let store = getStore();
+
+			// 	fetch(`https://www.swapi.tech/api/people/`)
+			// 		.then(resp => resp.json())
+			// 		.then(data =>
+			// 			setStore({ characters: store.characters.concat(data.results), characters2: data.next })
+			// 		)
+			// 		.catch(error => console.log("Error loading message from backend", error));
+			// },
+			getCharactersMore: () => {
+				let store = getStore();
+				var url = store.characters2;
+
+				fetch(url)
+					.then(resp => resp.json())
+					.then(data =>
+						setStore({ characters: store.characters.concat(data.results), characters2: data.next })
+					)
+					.catch(error => console.log("Error loading message from backend", error));
 			},
 
 			getMessage: () => {

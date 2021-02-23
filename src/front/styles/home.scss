@@ -37,6 +37,20 @@ color: white;
     color:yellow;
 }
 
+.showMore{
+    float: right;
+    margin-top: 10px;
+}
+.btnShowMore{
+    background: none;
+    border:1px solid white;
+    color:white;
+}
+
+.btnShowMore:hover{
+    border:1px solid yellow;
+}
+
 .marquee span {
   display: inline-block;
   padding-left: 100%;
@@ -64,6 +78,7 @@ color: white;
     //  border: 1px solid white;
      margin-top: 0 !important; 
     width: max-content;
+    border:1px solid green;
 }
 
 

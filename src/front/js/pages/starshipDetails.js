@@ -31,7 +31,7 @@ export const StarshipDetails = props => {
 		<div className="container">
 			<div className="d-flex">
 				<img
-					src="https://cdn.pixabay.com/photo/2016/03/27/07/26/darth-vader-1282288_960_720.jpg"
+					src="https://dwgyu36up6iuz.cloudfront.net/heru80fdn/image/upload/c_fill,d_placeholder_wired.png,fl_progressive,g_face,h_450,q_80,w_800/v1576594418/wired_each-and-every-starfighter-in-star-wars-explained.jpg"
 					alt="Card image cap"
 					className="detailsImage m-3"
 				/>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
+import { Dropdown } from "react-bootstrap";
 
 export const Navbar = () => {
 	const { store, actions } = useContext(Context);
@@ -40,8 +41,40 @@ export const Navbar = () => {
 						</li>
 					</Link>
 				</div>
+				<div>
+					<Dropdown>
+						<Dropdown.Toggle variant="success" id="dropdown-basic">
+							Favorites{" "}
+							<span className="badge badge-danger rounded-circle">{store.favorites.length}</span>
+						</Dropdown.Toggle>
 
-				<div className="dropdown">
+						<Dropdown.Menu>
+							{store.favorites.length}
+							{/* <div className={store.favorites.length > 0 ? "dropdown-menu show  text-white" : "d-non"}> */}
+							{store.favorites.map((value, index) => {
+								let info = actions.checkTypeofCard(value);
+								return (
+									<li key={index} className="dropdown-item  text-white">
+										<Link
+											className="text-white"
+											to={{
+												pathname: info.pathname,
+												state: info.cardInfo
+											}}>
+											{value}
+										</Link>
+										<i
+											className="fas fa-trash  float-right"
+											onClick={e => actions.deleteFavorite(value)}
+										/>
+									</li>
+								);
+							})}
+						</Dropdown.Menu>
+					</Dropdown>
+				</div>
+
+				{/* <div className="dropdown">
 					<button
 						className="btn btn-lg dropdown-toggle"
 						id="dropdownMenuButton"
@@ -72,7 +105,7 @@ export const Navbar = () => {
 							);
 						})}
 					</div>
-				</div>
+				</div> */}
 			</ul>
 		</nav>
 	);

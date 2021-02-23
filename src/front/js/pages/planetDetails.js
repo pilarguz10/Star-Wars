@@ -31,7 +31,7 @@ export const PlanetDetails = props => {
 		<div className="container">
 			<div className="d-flex">
 				<img
-					src="https://cdn.pixabay.com/photo/2016/03/27/07/26/darth-vader-1282288_960_720.jpg"
+					src="http://custom.swcombine.com/static/8/4/34-13715-1558966795-large.png"
 					alt="Card image cap"
 					className="detailsImage m-3"
 				/>
